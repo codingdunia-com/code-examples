@@ -1,0 +1,14 @@
+{
+  "name": "mycli",
+  "version": "1.0.0",
+  "type": "module",
+  "bin": {
+    "mycli": "./index.ts"
+  },
+  "engines": {
+    "node": ">=23.6.0"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}
