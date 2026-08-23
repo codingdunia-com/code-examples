@@ -1,0 +1,18 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "paths": {
+      "@repo/core": ["../../packages/core/src/index.ts"],
+      "@repo/config": ["../../packages/config/src/index.ts"],
+      "@repo/ui": ["../../packages/ui/src/index.ts"]
+    }
+  },
+  "include": ["src"],
+  "references": [
+    { "path": "../../packages/core" },
+    { "path": "../../packages/config" },
+    { "path": "../../packages/ui" }
+  ]
+}

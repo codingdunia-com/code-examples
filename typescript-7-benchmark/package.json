@@ -1,0 +1,13 @@
+{
+  "name": "typescript-7-benchmark",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node bench.mjs --runs 3 --sizes 100",
+    "bench": "node bench.mjs"
+  },
+  "devDependencies": {
+    "typescript": "7.0.2",
+    "typescript-6": "npm:typescript@6.0.3"
+  }
+}

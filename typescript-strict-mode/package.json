@@ -1,0 +1,7 @@
+{
+  "name": "typescript-strict-mode",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "node check.mjs" },
+  "devDependencies": { "typescript": "7.0.2" }
+}

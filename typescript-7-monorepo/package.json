@@ -1,0 +1,13 @@
+{
+  "name": "typescript-7-monorepo",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc --build",
+    "clean": "tsc --build --clean",
+    "test": "node verify.mjs"
+  },
+  "devDependencies": {
+    "typescript": "7.0.2"
+  }
+}
