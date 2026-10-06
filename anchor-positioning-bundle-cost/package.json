@@ -1,0 +1,13 @@
+{
+  "name": "anchor-positioning-bundle-cost",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "measure": "node measure-bundle.mjs",
+    "test": "node measure-bundle.mjs --assert"
+  },
+  "devDependencies": {
+    "@floating-ui/dom": "1.8.0",
+    "esbuild": "0.28.2"
+  }
+}

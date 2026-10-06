@@ -9,4 +9,4 @@ mycli --help       # now runs as a real command
 npm test           # runs validate.test.ts via node --test
 ```
 
-Full write-up: [Building a CLI Tool with Node.js and TypeScript](https://codingdunia.com/blog/building-cli-tool-nodejs-typescript/)
+Full write-up: Building a CLI Tool with Node.js and TypeScript (publishes 2026-09-27)

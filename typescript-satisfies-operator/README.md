@@ -1,6 +1,6 @@
 # satisfies, with the failures included
 
-The examples from [The satisfies Operator in TypeScript](https://codingdunia.com/blog/typescript-satisfies-operator-guide/),
+The examples from The satisfies Operator in TypeScript (publishes 2026-10-08),
 including the ones that are supposed to fail. A guide about a type operator is mostly
 claims about what the compiler rejects, so the rejections belong in the test.
 

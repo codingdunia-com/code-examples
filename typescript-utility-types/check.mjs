@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Two halves. First the whole src/ tree compiles and then actually runs, with
-// assertions on what Partial, Required, Pick, Omit, Record, Exclude and Extract
-// produce at runtime. Then every file in must-fail/ is compiled on its own and
+// assertions on what Partial, Required, Pick, Omit, Record, Exclude, Extract,
+// Parameters, ReturnType, Awaited and Readonly produce at runtime. Then every file in must-fail/ is compiled on its own and
 // has to fail with the diagnostic the guide says it should.
 //
 //   npm install && npm test
@@ -58,6 +58,8 @@ const expected = {
   'omit-leaks.ts': { code: 'TS2339', why: 'Omit removes the key rather than hiding it' },
   'exclude-null.ts': { code: 'TS2322', why: 'Exclude<MaybeString, null | undefined> is string and only string' },
   'pick-extra-key.ts': { code: 'TS2353', why: 'Pick narrows the surface, so stock is not on a ProductCard' },
+  'awaited-promise.ts': { code: 'TS2339', why: 'ReturnType of an async function is the Promise, so .name is not there until Awaited unwraps it' },
+  'readonly-assign.ts': { code: 'TS2540', why: 'Readonly<Config> rejects writes at compile time' },
 };
 
 const FLAGS = ['--noEmit', '--ignoreConfig', '--strict', '--target', 'es2022', '--module', 'esnext', '--moduleResolution', 'bundler'];

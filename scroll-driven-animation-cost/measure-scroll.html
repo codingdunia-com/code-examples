@@ -1,0 +1,100 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>scroll-driven vs scroll listener</title>
+<style>
+  body { margin: 0; font: 14px/1.5 system-ui; }
+  #spacer { height: 20000px; }
+  #bar-js, #bar-css { position: fixed; top: 0; left: 0; height: 4px; background: #4f46e5; transform-origin: 0 50%; }
+  #bar-js { transform: scaleX(0); width: 100%; }
+  #bar-css {
+    top: 6px; background: #059669; width: 100%;
+    animation: grow linear;
+    animation-timeline: scroll(root block);
+  }
+  @keyframes grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  #out { position: fixed; bottom: 0; left: 0; right: 0; background: #111; color: #eee;
+         padding: 12px; white-space: pre; font-family: ui-monospace, monospace; }
+</style>
+<div id="bar-js"></div>
+<div id="bar-css"></div>
+<div id="spacer"></div>
+<pre id="out">running...</pre>
+<script>
+// Measures the main-thread cost of the two ways to drive a scroll progress bar.
+//
+// Both bars do the same visible job: scale from 0 to 1 across the document's
+// scroll range. #bar-js is driven by a scroll event listener; #bar-css is
+// driven by animation-timeline: scroll(root block) and runs no script at all.
+//
+// The number that matters is not frame rate on an idle page (both look fine).
+// It is how much work lands on the main thread per scroll, because that is the
+// thread competing with React renders, hydration and event handlers.
+const supported = CSS.supports('animation-timeline', 'scroll()');
+
+let handlerCalls = 0;
+let handlerMs = 0;
+
+function onScroll() {
+  const t0 = performance.now();
+  const max = document.documentElement.scrollHeight - innerHeight;
+  const progress = max > 0 ? scrollY / max : 0;
+  document.getElementById('bar-js').style.transform = 'scaleX(' + progress + ')';
+  handlerMs += performance.now() - t0;
+  handlerCalls++;
+}
+
+async function run() {
+  addEventListener('scroll', onScroll, { passive: true });
+
+  // Scripted scroll: 200 steps down the document, one per animation frame,
+  // so the pass covers the same distance regardless of how fast the machine is.
+  const max = document.documentElement.scrollHeight - innerHeight;
+  const steps = 200;
+  const wall0 = performance.now();
+  let cssAtHalfway = null;
+  for (let i = 0; i <= steps; i++) {
+    scrollTo(0, (max * i) / steps);
+    // Sample the CSS-driven bar halfway down. At the bottom scaleX(1) is the
+    // identity matrix, indistinguishable from an animation that never ran, so
+    // the midpoint is the only sample that proves the timeline is live.
+    if (i === Math.floor(steps / 2)) {
+      cssAtHalfway = getComputedStyle(document.getElementById('bar-css')).transform;
+    }
+    // rAF, but with a timeout fallback so the pass still completes when the
+    // tab is backgrounded and the browser stops serving animation frames.
+    await new Promise((res) => {
+      requestAnimationFrame(res);
+      setTimeout(res, 32);
+    });
+  }
+  const wallMs = performance.now() - wall0;
+  removeEventListener('scroll', onScroll);
+
+  // Read what the CSS-driven bar actually resolved to. If the animation ran,
+  // its computed transform is a real matrix, not the identity.
+  const cssTransform = getComputedStyle(document.getElementById('bar-css')).transform;
+
+  const report = {
+    userAgent: navigator.userAgent,
+    dpr: devicePixelRatio,
+    animationTimelineSupported: supported,
+    scrollRangePx: Math.round(max),
+    scrollSteps: steps,
+    wallClockMs: +wallMs.toFixed(1),
+    listener: {
+      calls: handlerCalls,
+      totalMainThreadMs: +handlerMs.toFixed(3),
+      msPerCall: +(handlerMs / handlerCalls).toFixed(4),
+    },
+    cssScrollTimeline: {
+      calls: 0,
+      totalMainThreadMs: 0,
+      resolvedTransformAtHalfway: cssAtHalfway,
+      resolvedTransformAtBottom: cssTransform,
+    },
+  };
+  document.getElementById('out').textContent = JSON.stringify(report, null, 2);
+  window.__report = report;
+}
+run();
+</script>

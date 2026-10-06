@@ -7,6 +7,7 @@ import { validateConfig } from './required.js';
 import { toCard, toPublic } from './pick-omit.js';
 import { describe, statusMessages } from './record.js';
 import { closedStates, isOpen, openStates } from './exclude-extract.js';
+import { DEFAULTS, fetchUser, loggedFetchUser, type FetchUserArgs, type FetchUserResult } from './function-types.js';
 import { type HttpStatus, type Product, type User } from './types.js';
 
 const user: User = { id: 'u-1', name: 'Ada', email: 'ada@example.com', role: 'viewer' };
@@ -43,5 +44,12 @@ assert.deepEqual(openStates, ['active', 'pending']);
 assert.deepEqual(closedStates, ['inactive', 'banned']);
 assert.equal(isOpen('active'), true);
 assert.equal(isOpen('banned'), false);
+
+const args: FetchUserArgs = ['u-2', true];
+const fetched: FetchUserResult = await fetchUser(...args);
+assert.equal(fetched.role, 'admin');
+assert.equal((await loggedFetchUser('u-3')).role, 'viewer');
+assert.equal(Object.isFrozen(DEFAULTS), true);
+assert.equal(DEFAULTS.timeout, 5000);
 
 console.log('      all runtime assertions passed');

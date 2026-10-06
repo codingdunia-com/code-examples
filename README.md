@@ -18,16 +18,23 @@ if a future release changes the answer.
 ## TypeScript language
 
 - [`typescript-strict-mode/`](./typescript-strict-mode/) - each strict flag as a before/after pair, asserting the exact diagnostic code. From [The TypeScript Strict Mode Guide](https://codingdunia.com/blog/typescript-strict-mode-guide/)
-- [`typescript-satisfies-operator/`](./typescript-satisfies-operator/) - the examples that compile and the ones that must not, including the widening case that trips most people up. From [The satisfies Operator](https://codingdunia.com/blog/typescript-satisfies-operator-guide/)
-- [`typescript-utility-types/`](./typescript-utility-types/) - `Partial`, `Required`, `Pick`, `Omit`, `Record`, `Exclude` and `Extract`, compiled and then executed with runtime assertions. From [TypeScript Utility Types Explained](https://codingdunia.com/blog/typescript-utility-types-guide/)
+- [`typescript-generics/`](./typescript-generics/) - every generic from the guide compiled under strict `typescript@7.0.2` and executed, plus four files that must fail to compile, each asserting its exact diagnostic code. From [TypeScript Generics: Practical Guide for React Developers](https://codingdunia.com/blog/typescript-generics-explained/)
+- [`typescript-satisfies-operator/`](./typescript-satisfies-operator/) - the examples that compile and the ones that must not, including the widening case that trips most people up. From The satisfies Operator (publishes 2026-10-08)
+- [`typescript-utility-types/`](./typescript-utility-types/) - `Partial`, `Required`, `Pick`, `Omit`, `Record`, `Exclude`, `Extract`, `Parameters`, `ReturnType`, `Awaited` and `Readonly`, compiled and then executed with runtime assertions. From [TypeScript Utility Types Explained](https://codingdunia.com/blog/typescript-utility-types-guide/)
 
 ## Tooling and JavaScript
 
 - [`vite-6-environment-api/`](./vite-6-environment-api/) - multi-target Vite 6 config (client/SSR/edge) from [Vite 6 Environment API](https://codingdunia.com/blog/vite-6-environment-api-guide/)
 - [`zod-form-validation/`](./zod-form-validation/) - schema-first form validation with Zod and React Hook Form from [Form Validation with Zod and TypeScript](https://codingdunia.com/blog/form-validation-zod-typescript/)
-- [`cli-tool-nodejs-typescript/`](./cli-tool-nodejs-typescript/) - a Node.js CLI skeleton (arg parsing, exit codes, native TS execution) from [Building a CLI Tool with Node.js and TypeScript](https://codingdunia.com/blog/building-cli-tool-nodejs-typescript/)
+- [`cli-tool-nodejs-typescript/`](./cli-tool-nodejs-typescript/) - a Node.js CLI skeleton (arg parsing, exit codes, native TS execution) from Building a CLI Tool with Node.js and TypeScript (publishes 2026-09-27)
+- [`quality-md-lint/`](./quality-md-lint/) - the `qualitymd` 0.35.2 CLI run against a valid and a broken model, asserting what `lint` rejects, what `--fix` leaves alone and what `init` writes into `AGENTS.md`. From [Adding QUALITY.md to an Existing Repo](https://codingdunia.com/blog/quality-md-existing-repo-guide/)
 - [`structured-clone-benchmark/`](./structured-clone-benchmark/) - the benchmark behind [Is structuredClone() Slower Than JSON.parse(JSON.stringify())?](https://codingdunia.com/blog/structured-clone-vs-json-parse-stringify/); run it and it prints the article's table for your machine
 - [`iterator-helpers-benchmark/`](./iterator-helpers-benchmark/) - the benchmark behind [JavaScript Iterator Helpers](https://codingdunia.com/blog/javascript-iterator-helpers-guide/); needs Node 22+
+
+## CSS, measured rather than asserted
+
+- [`scroll-driven-animation-cost/`](./scroll-driven-animation-cost/) - the same progress bar built twice, once with a `scroll` listener and once with `animation-timeline`, counting main-thread time in the handler. Runs in headless Chromium. From [Building Scroll-Driven Animations With Pure CSS](https://codingdunia.com/blog/scroll-driven-animations-css-guide/). Needs `npx playwright install chromium` once
+- [`anchor-positioning-bundle-cost/`](./anchor-positioning-bundle-cost/) - weighs a real Floating UI tooltip (offset, flip, shift, arrow) so "removes a dependency" has a number attached. From [Positioning Tooltips With CSS Anchor Positioning](https://codingdunia.com/blog/css-anchor-positioning-tooltips-popovers/)
 
 ## Running everything
 
@@ -39,7 +46,7 @@ version its README names.
 
 ## Reproducing the benchmarks
 
-Three folders here time something rather than demonstrate an API. Each one prints its
+Five folders here measure something rather than demonstrate an API. Each one prints its
 own Node version, CPU and date, so a result you get is comparable to the one we
 published instead of being taken on trust. Your numbers will differ from ours, and on
 the borderline rows they may well flip. That is worth knowing before you rewrite
@@ -61,3 +68,14 @@ TypeScript 7 sweep on 2026-08-23:
 ## License
 
 MIT - copy anything here into your own project.
+
+---
+
+## Where this comes from
+
+This repository is a **mirror**. The source of truth is `blogs/coding-dunia/examples/`
+in the blog's own repository, beside the articles the code belongs to.
+
+Nothing is published here until it has actually run and passed there. That is a gate in
+`publish-examples.ts`, not a flag someone can skip: a mirror that publishes code nobody
+ran is worse than no mirror, because it turns a checkable claim back into a promise.

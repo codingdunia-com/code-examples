@@ -1,0 +1,7 @@
+{
+  "name": "quality-md-lint",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "node check.mjs" },
+  "devDependencies": { "quality.md": "0.35.2" }
+}
