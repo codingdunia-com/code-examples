@@ -34,7 +34,7 @@ The codes are recorded because "this errors" is a weaker claim than "this errors
 the reason I said it did". If a future compiler changes the diagnostic, this folder
 fails and the article gets corrected rather than quietly drifting.
 
-## 🎯 Scope, honestly
+## 🎯 Scope
 
 The article is written for React developers, but nothing here imports React. The
 claims being checked are type-level, and a render test would prove nothing about

@@ -1,6 +1,6 @@
 // One transformer, every file, N rounds, one process. Prints a JSON line with the
 // per-round timings. bench.mjs spawns this once per tool per repetition, so each
-// repetition starts a fresh process and round 1 is a genuine cold run.
+// repetition starts a fresh process and round 1 is a real cold run.
 //
 //   node transform-worker.mjs <tool> <dir> <rounds>
 //   tools: swc | esbuild | babel-no-env | babel-env

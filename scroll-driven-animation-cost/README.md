@@ -33,7 +33,7 @@ scroll range. The indigo one is driven by a `scroll` event listener, the green o
 itself in 200 steps and counts, for the listener, how many times it ran and how many
 milliseconds of main-thread time it spent inside the handler.
 
-One detail is there to keep the result honest. At the bottom of the page the CSS bar
+One detail is there to keep the result fair. At the bottom of the page the CSS bar
 resolves to `scaleX(1)`, which is the identity matrix, indistinguishable from an
 animation that never started. So the script also samples the computed transform
 halfway down, where a live timeline has to read as roughly `0.5`.

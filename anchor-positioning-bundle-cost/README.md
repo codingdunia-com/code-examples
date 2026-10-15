@@ -35,7 +35,7 @@ number without those ages badly.
 
 The CSS equivalent ships 0 B of JavaScript.
 
-Two honest caveats. Tree-shaking means your number depends on which middleware you
+Two caveats. Tree-shaking means your number depends on which middleware you
 import, so a simpler tooltip is cheaper than this one. And 6 kB gzipped is not a
 crisis on its own, which is exactly why it is worth measuring instead of asserting:
 the case for the CSS version is that it deletes a dependency, not that it rescues

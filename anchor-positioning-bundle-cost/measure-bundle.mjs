@@ -1,7 +1,7 @@
 // Measures what a Floating UI tooltip actually costs to ship, versus the
 // zero bytes of JavaScript that CSS anchor positioning ships.
 //
-// The comparison is only honest if the JS side is a real tooltip, so the
+// The comparison is only fair if the JS side is a real tooltip, so the
 // entry point below imports exactly the middleware a tooltip needs: offset
 // (the 8px gap), flip (move above when there's no room below), shift (keep
 // it inside the viewport) and arrow (the little triangle).
