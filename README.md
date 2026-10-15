@@ -28,8 +28,11 @@ if a future release changes the answer.
 - [`zod-form-validation/`](./zod-form-validation/) - schema-first form validation with Zod and React Hook Form from [Form Validation with Zod and TypeScript](https://codingdunia.com/blog/form-validation-zod-typescript/)
 - [`cli-tool-nodejs-typescript/`](./cli-tool-nodejs-typescript/) - a Node.js CLI skeleton (arg parsing, exit codes, native TS execution) from Building a CLI Tool with Node.js and TypeScript (publishes 2026-09-27)
 - [`quality-md-lint/`](./quality-md-lint/) - the `qualitymd` 0.35.2 CLI run against a valid and a broken model, asserting what `lint` rejects, what `--fix` leaves alone and what `init` writes into `AGENTS.md`. From [Adding QUALITY.md to an Existing Repo](https://codingdunia.com/blog/quality-md-existing-repo-guide/)
+- [`vitest-4-to-5-upgrade/`](./vitest-4-to-5-upgrade/) - ten test files run under `vitest@4.1.11` and `vitest@5.0.3` on the same Vite, asserting which behaviors flip, plus a timed 240-test suite and the `@vitest/coverage-v8` version-mismatch failure. Needs Node 22.12+. From [Vitest 5 Migration Guide](https://codingdunia.com/blog/vitest-5-migration-guide/) (October 8 update)
 - [`structured-clone-benchmark/`](./structured-clone-benchmark/) - the benchmark behind [Is structuredClone() Slower Than JSON.parse(JSON.stringify())?](https://codingdunia.com/blog/structured-clone-vs-json-parse-stringify/); run it and it prints the article's table for your machine
 - [`iterator-helpers-benchmark/`](./iterator-helpers-benchmark/) - the benchmark behind [JavaScript Iterator Helpers](https://codingdunia.com/blog/javascript-iterator-helpers-guide/); needs Node 22+
+
+- [`swc-vs-babel-webpack-benchmark/`](./swc-vs-babel-webpack-benchmark/) - 400 generated TSX files transformed by `@swc/core`, esbuild and Babel in fresh processes, then built by webpack 5 with `swc-loader` and `babel-loader`; prints medians, ranges and every run. Needs Node 22+. From the SWC vs Babel benchmark article (publishes 2026-10-24)
 
 ## CSS, measured rather than asserted
 

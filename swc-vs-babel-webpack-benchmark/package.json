@@ -1,0 +1,28 @@
+{
+  "name": "swc-vs-babel-webpack-benchmark",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node bench.mjs --files 40 --reps 1 --builds 1 --rounds 3",
+    "bench": "node bench.mjs"
+  },
+  "dependencies": {
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@babel/core": "8.0.7",
+    "@babel/preset-env": "8.0.7",
+    "@babel/preset-react": "8.0.1",
+    "@babel/preset-typescript": "8.0.7",
+    "@swc/core": "1.16.18",
+    "babel-loader": "10.1.1",
+    "esbuild": "0.28.2",
+    "swc-loader": "0.2.7",
+    "webpack": "5.111.1",
+    "webpack-cli": "7.2.3"
+  }
+}

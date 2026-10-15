@@ -1,0 +1,10 @@
+{
+  "name": "vitest-5-with-old-coverage",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "@vitest/coverage-v8": "4.1.11",
+    "vite": "8.3.4",
+    "vitest": "5.0.3"
+  }
+}

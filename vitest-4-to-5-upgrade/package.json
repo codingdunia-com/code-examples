@@ -1,0 +1,10 @@
+{
+  "name": "vitest-4-to-5-upgrade",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "setup": "npm --prefix v4 install --no-audit --no-fund --legacy-peer-deps && npm --prefix v5 install --no-audit --no-fund --legacy-peer-deps && npm --prefix v5-mixed install --no-audit --no-fund --legacy-peer-deps",
+    "test": "npm run setup --silent && node check.mjs",
+    "bench": "npm run setup --silent && node bench.mjs"
+  }
+}
