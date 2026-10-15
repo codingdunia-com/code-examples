@@ -1,4 +1,4 @@
-# Vite 6 Environment API
+# 🔌 Vite 6 Environment API
 
 A single `vite.config.ts` defining three named environments (client, SSR, edge), each with its own `outDir` and `resolve.conditions`.
 

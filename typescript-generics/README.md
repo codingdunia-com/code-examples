@@ -1,4 +1,4 @@
-# The generics from the guide, compiled and run
+# 🧬 The generics from the guide, compiled and run
 
 The code behind [TypeScript Generics: Practical Guide for React Developers](https://codingdunia.com/blog/typescript-generics-explained/).
 
@@ -9,7 +9,7 @@ npm test
 
 TypeScript 7.0.2, pinned. The install pulls a compiler, so it is not instant.
 
-## What it checks
+## ✅ What it checks
 
 Two halves, the same shape as the other TypeScript folders here.
 
@@ -34,7 +34,7 @@ The codes are recorded because "this errors" is a weaker claim than "this errors
 the reason I said it did". If a future compiler changes the diagnostic, this folder
 fails and the article gets corrected rather than quietly drifting.
 
-## Scope, honestly
+## 🎯 Scope, honestly
 
 The article is written for React developers, but nothing here imports React. The
 claims being checked are type-level, and a render test would prove nothing about

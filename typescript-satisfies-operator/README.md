@@ -1,6 +1,6 @@
-# satisfies, with the failures included
+# 🎯 satisfies, with the failures included
 
-The examples from The satisfies Operator in TypeScript (publishes 2026-10-08),
+The examples from [The TypeScript satisfies Operator: Config Without Loss](https://codingdunia.com/blog/typescript-satisfies-operator-guide/),
 including the ones that are supposed to fail. A guide about a type operator is mostly
 claims about what the compiler rejects, so the rejections belong in the test.
 
@@ -9,7 +9,7 @@ npm install
 npm test
 ```
 
-## What it checks
+## ✅ What it checks
 
 | File | Expected | Point |
 | --- | --- | --- |
@@ -21,7 +21,7 @@ npm test
 | `command-registry.ts` | compiles | `keyof typeof` yields `'build' \| 'deploy'` |
 | `command-registry-unknown-key.ts` | `TS2322` | a name outside that union is rejected |
 
-## The detail that trips people up
+## 💡 The detail that trips people up
 
 `satisfies` does not stop widening on its own. It stops the *annotation* from
 widening, but the type you satisfy still supplies a contextual type, and if that

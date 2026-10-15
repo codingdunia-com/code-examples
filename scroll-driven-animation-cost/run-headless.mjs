@@ -1,6 +1,6 @@
-// Runs measure-scroll.html in headless Chromium so this folder sits inside the
-// same verification gate as every other example here, rather than being a page
-// someone has to remember to open by hand.
+// Runs measure-scroll.html in headless Chromium so this folder is checked
+// the same way as every other example here, rather than being a page someone has
+// to remember to open by hand.
 //
 // The page does the measuring; this file only drives it and checks the result is
 // a real measurement. It asserts the shape, not the exact milliseconds, because

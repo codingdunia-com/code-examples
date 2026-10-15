@@ -1,4 +1,4 @@
-# Strict mode, one flag at a time
+# 🔒 Strict mode, one flag at a time
 
 Every compiler flag from [The TypeScript Strict Mode Guide](https://codingdunia.com/blog/typescript-strict-mode-guide/)
 as a pair of files: the version that compiles with strict off and fails with it on,
@@ -9,7 +9,7 @@ npm install
 npm test
 ```
 
-## What it checks
+## ✅ What it checks
 
 | Flag | `before/` | Diagnostic | `after/` |
 | --- | --- | --- | --- |

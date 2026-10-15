@@ -1,4 +1,4 @@
-# Zod Form Validation
+# 📝 Zod Form Validation
 
 Schema-first form validation: one Zod schema drives both runtime validation and the static TypeScript type, on the client and the server.
 

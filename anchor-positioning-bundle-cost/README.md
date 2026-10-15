@@ -1,4 +1,4 @@
-# What a Floating UI tooltip costs to ship
+# ⚓ What a Floating UI tooltip costs to ship
 
 The measurement behind [Positioning Tooltips With CSS Anchor Positioning](https://codingdunia.com/blog/css-anchor-positioning-tooltips-popovers/).
 
@@ -7,7 +7,7 @@ npm install
 npm run measure
 ```
 
-## What it measures
+## 📏 What it measures
 
 The article claims CSS anchor positioning replaces Floating UI for common tooltip
 cases. That claim is only worth anything with a number attached, so the script
@@ -23,7 +23,7 @@ the script reports gzip and brotli sizes.
 It prints its own dependency versions, Node version and the date. A bundle-size
 number without those ages badly.
 
-## What we measured
+## 📈 What we measured
 
 `@floating-ui/dom` 1.8.0, esbuild 0.28.2, Node 20.20.0 on Darwin arm64, 2026-08-24:
 

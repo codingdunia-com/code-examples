@@ -1,4 +1,4 @@
-# Iterator helpers vs array methods
+# 🔁 Iterator helpers vs array methods
 
 The benchmark behind [JavaScript Iterator Helpers: A Practical Guide](https://codingdunia.com/blog/javascript-iterator-helpers-guide/).
 
@@ -9,7 +9,7 @@ node bench.mjs
 No dependencies. **Needs Node 22+** for iterator helpers. On an older Node the script
 throws on `.filter()` over an iterator, which is itself a useful thing to find out.
 
-## What it measures
+## 📏 What it measures
 
 One million plain objects, three workloads: stop after ten matches, take every match,
 and reduce over the whole set. Each figure is a timed batch divided by its iteration
@@ -22,7 +22,7 @@ Heap growth is measured under `--expose-gc`:
 node --expose-gc bench.mjs
 ```
 
-## What we measured
+## 📈 What we measured
 
 Node 22.11.0, V8 12.4, Apple M1, 2026-08-23:
 

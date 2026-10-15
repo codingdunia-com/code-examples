@@ -1,4 +1,4 @@
-# structuredClone() vs the JSON round trip
+# 📋 structuredClone() vs the JSON round trip
 
 The benchmark behind [Is structuredClone() Slower Than JSON.parse(JSON.stringify())?](https://codingdunia.com/blog/structured-clone-vs-json-parse-stringify/).
 
@@ -11,7 +11,7 @@ node bench.mjs
 
 No dependencies. Node 17+ (that is when `structuredClone` became global).
 
-## What it measures
+## 📏 What it measures
 
 Five payload shapes, from an 8-key config object up to a `Float64Array` of 100,000
 items. For each one it warms up, then takes the median of a timed run, then takes the
@@ -21,7 +21,7 @@ up whatever else the machine was doing.
 The script prints its own Node version, CPU model and the date, because a clone
 benchmark without those is not reproducible by anyone.
 
-## What we measured
+## 📈 What we measured
 
 Node 20.19.5 on an Apple M1, 2026-08-23:
 

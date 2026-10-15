@@ -1,4 +1,4 @@
-# QUALITY.md lint, init and --fix, asserted
+# 🧹 QUALITY.md lint, init and --fix, asserted
 
 The commands from Adding QUALITY.md to an Existing Repo, run against the pinned
 `quality.md@0.35.2` CLI (specification 0.12, Draft). Everything the article says the
@@ -10,7 +10,7 @@ npm install
 npm test
 ```
 
-## What it checks
+## ✅ What it checks
 
 | Check | Expected |
 | --- | --- |
@@ -23,7 +23,7 @@ npm test
 | a second `init` | refuses without `--force` |
 | `init --minimal --no-agent-instructions` | `AGENTS.md` left alone |
 
-## Notes
+## 📝 Notes
 
 `npm install` pulls one platform binary as an optional dependency. On linux-x64 the
 0.35.2 tarball is 36.8 MB and unpacks to 95.2 MB, which is worth caching in CI.

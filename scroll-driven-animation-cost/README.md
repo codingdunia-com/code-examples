@@ -1,4 +1,4 @@
-# What a scroll listener costs that animation-timeline does not
+# 🖱️ What a scroll listener costs that animation-timeline does not
 
 The measurement behind [Building Scroll-Driven Animations With Pure CSS](https://codingdunia.com/blog/scroll-driven-animations-css-guide/).
 
@@ -25,7 +25,7 @@ which is the hook to use if you would rather drive it from Playwright or Puppete
 Keep the tab focused. A backgrounded tab gets its timers and animation frames
 throttled, and the pass either crawls or stalls outright.
 
-## What it measures
+## 📏 What it measures
 
 Two progress bars do the same visible job: scale from 0 to 1 across the document's
 scroll range. The indigo one is driven by a `scroll` event listener, the green one by
@@ -38,7 +38,7 @@ resolves to `scaleX(1)`, which is the identity matrix, indistinguishable from an
 animation that never started. So the script also samples the computed transform
 halfway down, where a live timeline has to read as roughly `0.5`.
 
-## What we measured
+## 📈 What we measured
 
 Headless Chromium 151 on an Apple M1, 19,280 px of scroll range, 200 steps, three runs:
 

@@ -1,4 +1,4 @@
-# Utility types, compiled and then executed
+# 🧰 Utility types, compiled and then executed
 
 Every utility type from [TypeScript Utility Types Explained](https://codingdunia.com/blog/typescript-utility-types-guide/),
 compiled under strict TypeScript 7 and then actually run.
@@ -8,7 +8,7 @@ npm install
 npm test
 ```
 
-## Two halves
+## 🧩 Two halves
 
 **`src/`** compiles and runs. `main.ts` asserts what the helpers do at runtime:
 `Partial` merges a subset onto a user, `Required` fills defaults and throws on a

@@ -1,4 +1,4 @@
-# tsc 6 against tsc 7, on your own machine
+# ⏱️ tsc 6 against tsc 7, on your own machine
 
 The benchmark behind [TypeScript 7 Benchmarks: How Much Faster Is tsgo Really?](https://codingdunia.com/blog/tsgo-benchmarks-typescript-7-speed/).
 
@@ -16,7 +16,7 @@ Flags: `--sizes 200,800` picks the module counts, `--runs 3` picks how many time
 passes per compiler. Default is 100 / 400 / 1000 modules, 5 runs, median reported,
 with one untimed warm-up per compiler so the OS file cache is not part of the result.
 
-## What we measured
+## 📈 What we measured
 
 Node 20.19.5 on an Apple M1, 8 cores, 2026-08-23:
 
@@ -29,7 +29,7 @@ Node 20.19.5 on an Apple M1, 8 cores, 2026-08-23:
 Both compilers reported zero errors on every size, so both were demonstrably doing
 the same work.
 
-## Why this runs faster than the article's own numbers
+## 🤔 Why this runs faster than the article's own numbers
 
 The article measures three real repos and lands on 4.4x to 5.8x. This script lands
 higher, and the difference is the point rather than a contradiction. The generated
@@ -41,7 +41,7 @@ the Go rewrite speeds up least.
 So read this script as the upper end: what the compiler does when nothing but your
 own code is in the way. Your repo sits somewhere below it.
 
-## What the generated code contains
+## 🧬 What the generated code contains
 
 Each module imports a type and a function from two earlier modules, so the checker
 walks a real dependency graph instead of a pile of isolated files. Every module

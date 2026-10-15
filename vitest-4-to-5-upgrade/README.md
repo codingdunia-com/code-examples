@@ -1,4 +1,4 @@
-# Vitest 4.1.11 against Vitest 5.0.3, same tests
+# 🧪 Vitest 4.1.11 against Vitest 5.0.3, same tests
 
 The runnable half of the October 8 update to
 [Vitest 5 Migration Guide: What Breaks and How to Fix](https://codingdunia.com/blog/vitest-5-migration-guide/).
@@ -17,7 +17,7 @@ Needs Node 22.12 or newer (Vitest 5 refuses Node 20). Installs use
 `Cannot read properties of null (reading 'edgesOut')` without it, and `v5-mixed`
 is a deliberately mismatched pair.
 
-## What `npm test` asserts
+## ✅ What `npm test` asserts
 
 | Case | Vitest 4.1.11 | Vitest 5.0.3 |
 | --- | --- | --- |
@@ -42,7 +42,7 @@ The fifth row is the one that corrected the article: Vitest 4.1.11 already fails
 unawaited assertion that is wrong. What it lets through is the unawaited assertion
 that happens to be right.
 
-## What `npm run bench` measures
+## 📈 What `npm run bench` measures
 
 Sixty modules and 240 tests that use `vi.fn`, `vi.mock` with a factory and fake
 timers, laid out as 60 files of 4 tests and as 10 files of 24, plus the 60-file layout

@@ -1,6 +1,6 @@
-# SWC against Babel, raw and inside webpack, on your own machine
+# ⚡ SWC against Babel, raw and inside webpack, on your own machine
 
-The benchmark behind the SWC vs Babel article on codingdunia.com (publishes 2026-10-24).
+The benchmark behind the SWC vs Babel article on codingdunia.com.
 
 ```bash
 npm install
@@ -15,7 +15,7 @@ Flags: `--files 400` project size, `--reps 3` fresh processes per transformer,
 `--npx` time webpack through `npx --no-install webpack` like the article's run did,
 `--skip-webpack` transform table only, `--json out.json` write the raw numbers.
 
-## What it measures
+## 📏 What it measures
 
 **Part 1, raw transform.** `generate.mjs` writes 400 `.tsx` files of about 940 bytes each:
 a typed props interface, `useState`, `useMemo`, an async function, a mapped list with
@@ -44,7 +44,7 @@ It fails instead of printing when a transformer produces no output, transforms a
 different number of files than it was given, or a webpack build exits non-zero or writes
 no bundle, so a "fast" figure cannot come from doing nothing.
 
-## Versions
+## 📦 Versions
 
 Pinned in `package.json` and `package-lock.json` to what the article used: `@swc/core`
 1.16.18, `@babel/core` 8.0.7 with `preset-env` 8.0.7, `preset-react` 8.0.1 and
@@ -52,7 +52,7 @@ Pinned in `package.json` and `package-lock.json` to what the article used: `@swc
 `swc-loader` 0.2.7, `react` and `react-dom` 19.3.1. The article does not name a
 `webpack-cli` version; this folder uses 7.2.3.
 
-## What we measured
+## 📈 What we measured
 
 The article's own run was a 4-vCPU Intel Xeon at 2.8 GHz with 15 GB of RAM, Node 22.22.0,
 a shared virtual machine, three repetitions. This folder was added afterwards and first
@@ -85,7 +85,7 @@ webpack 5.111.1 production build of the same files:
 Two more M1 runs gave 1.59x (0.66 s saved) and, timing through `npx` like the article
 did, 1.62x (0.76 s saved).
 
-## What matched and what did not
+## 🔍 What matched and what did not
 
 - **The ordering and the build-level ratio matched.** SWC, then esbuild with per-file
   calls, then Babel. The webpack gap was 1.6x on the M1 against about 1.8x in the
@@ -106,7 +106,7 @@ did, 1.62x (0.76 s saved).
   article: the minifier has almost nothing to do, and the loaders still transform every
   file.
 
-## Caveats
+## ⚠️ Caveats
 
 - Babel's `development` default follows `NODE_ENV`, which is unset here, so Babel emits
   `jsxDEV` calls with source locations while SWC emits plain `jsx`. That is slightly
