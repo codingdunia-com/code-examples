@@ -1,0 +1,18 @@
+{
+  "name": "react-memo-render-counts",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node run.mjs"
+  },
+  "dependencies": {
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@babel/core": "7.29.0",
+    "@babel/preset-react": "7.28.5",
+    "babel-plugin-react-compiler": "1.0.0",
+    "jsdom": "30.1.3"
+  }
+}

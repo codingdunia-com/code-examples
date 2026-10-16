@@ -1,0 +1,11 @@
+{
+  "name": "css-auto-fit-breakpoints",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node run-headless.mjs"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
+  }
+}

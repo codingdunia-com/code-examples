@@ -1,0 +1,20 @@
+{
+  "name": "css-nesting-benchmark",
+  "private": true,
+  "type": "module",
+  "description": "Native CSS nesting vs Sass vs lightningcss vs postcss-nesting: compile time, output size, parse cost in Chromium, and the places where native nesting behaves differently from Sass. Asserted.",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node compile-bench.mjs && node chromium-behaviors.mjs && node chromium-parse.mjs"
+  },
+  "devDependencies": {
+    "lightningcss": "1.33.0",
+    "playwright": "1.62.1",
+    "postcss": "8.5.30",
+    "postcss-nesting": "14.0.3",
+    "sass": "1.105.2",
+    "sass-1-91": "npm:sass@1.91.0"
+  }
+}

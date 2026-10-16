@@ -32,23 +32,34 @@ if a future release changes the answer.
 - [`structured-clone-benchmark/`](./structured-clone-benchmark/) - the benchmark behind [Is structuredClone() Slower Than JSON.parse(JSON.stringify())?](https://codingdunia.com/blog/structured-clone-vs-json-parse-stringify/); run it and it prints the article's table for your machine
 - [`iterator-helpers-benchmark/`](./iterator-helpers-benchmark/) - the benchmark behind [JavaScript Iterator Helpers](https://codingdunia.com/blog/javascript-iterator-helpers-guide/); needs Node 22+
 - [`swc-vs-babel-webpack-benchmark/`](./swc-vs-babel-webpack-benchmark/) - 400 generated TSX files transformed by `@swc/core`, esbuild and Babel in fresh processes, then built by webpack 5 with `swc-loader` and `babel-loader`; prints medians, ranges and every run. Needs Node 22+. From the SWC vs Babel benchmark article
+- [`array-grouping-benchmark/`](./array-grouping-benchmark/) - `Object.groupBy` and `Map.groupBy` against `reduce`, loops and lodash: time, retained heap and 19 asserted behaviour differences (a `reduce` into `{}` throws on a group key called `constructor`). Needs Node 22+. From [JavaScript Array Grouping: Object.groupBy Explained](https://codingdunia.com/blog/javascript-array-grouping-new-methods/)
+- [`async-await-benchmark/`](./async-await-benchmark/) - 20 requests against a 25 ms local server in a loop, `Promise.all` and a worker pool, a burst of up to 5,000, the cost of one `await`, microtask tick counts, and which async error patterns exit Node with code 1. Needs Node 22+. From [JavaScript Async/Await: Errors, Parallel Calls, Loops](https://codingdunia.com/blog/javascript-async-await-guide/)
+- [`react-memo-render-counts/`](./react-memo-render-counts/) - 25 components rendered in jsdom on `react@19.3.1`, counting how many of 1000 rows re-render for nine `memo`/`useCallback`/context patterns, then the same source through `babel-plugin-react-compiler@1.0.0`; also `useMemo` cost by list size, derived state in an effect, and StrictMode callback counts. Needs Node 22.22.2+. From [React Hooks Best Practices: Common Pitfalls to Avoid](https://codingdunia.com/blog/react-hooks-best-practices/)
+- [`react-19-hooks-measured/`](./react-19-hooks-measured/) - `useActionState` queueing, `useOptimistic` render sequences, `use()` with a promise made in render, `ref` as a prop, `Activity` versus `display: none` and `useEffectEvent` on `react@19.3.1`, plus which of these APIs each of 18.3.1, 19.0, 19.1, 19.2 and 19.3.1 exports. Needs Node 22.22.2+. From [React 19: Complete Guide to New Features and Migration](https://codingdunia.com/blog/react-19-new-features/)
 
 ## 🎨 CSS, measured rather than asserted
 
 - [`scroll-driven-animation-cost/`](./scroll-driven-animation-cost/) - the same progress bar built twice, once with a `scroll` listener and once with `animation-timeline`, counting main-thread time in the handler. Runs in headless Chromium. From [Building Scroll-Driven Animations With Pure CSS](https://codingdunia.com/blog/scroll-driven-animations-css-guide/). Needs `npx playwright install chromium` once
 - [`anchor-positioning-bundle-cost/`](./anchor-positioning-bundle-cost/) - weighs a real Floating UI tooltip (offset, flip, shift, arrow) so "removes a dependency" has a number attached. From [Positioning Tooltips With CSS Anchor Positioning](https://codingdunia.com/blog/css-anchor-positioning-tooltips-popovers/)
+- [`css-has-invalidation-cost/`](./css-has-invalidation-cost/) - counts how many elements Chromium restyles when one checkbox flips, for `:has()` looking at its own children, at the previous sibling and at every earlier sibling, against the JavaScript class that would do the same job. Runs in headless Chromium. From [CSS :has() Selector: Practical Styling Patterns for 2026](https://codingdunia.com/blog/css-has-selector-practical-patterns/). Needs `npx playwright install chromium` once
+- [`css-container-query-cost/`](./css-container-query-cost/) - measures what `container-type: inline-size` does to a container's width in nine layout contexts (it collapses to 0px in four of them) and times a resize with media queries, one container per card and one container per grid. Runs in headless Chromium. From [CSS Container Queries: Build Truly Responsive Components](https://codingdunia.com/blog/css-container-queries/). Needs `npx playwright install chromium` once
+- [`css-subgrid-row-alignment/`](./css-subgrid-row-alignment/) - the same twelve cards built with subgrid, a nested grid, a flex column and fixed min-heights, swept across 201 container widths and checked with `getBoundingClientRect` for aligned body and footer tops. Runs in headless Chromium. From [CSS Subgrid Explained: Aligning Nested Grid Layouts](https://codingdunia.com/blog/css-subgrid-guide/). Needs `npx playwright install chromium` once
+- [`css-auto-fit-breakpoints/`](./css-auto-fit-breakpoints/) - finds the exact container width at which `repeat(auto-fit, minmax(280px, 1fr))` adds a column, for four gap sizes, plus lone-item widths for auto-fit vs auto-fill and the effect of a classic scrollbar. Runs in headless Chromium. From [Responsive CSS Grid Without Media Queries, Explained](https://codingdunia.com/blog/responsive-css-grid-auto-fit/). Needs `npx playwright install chromium` once
+- [`css-nesting-benchmark/`](./css-nesting-benchmark/) - one stylesheet through Sass, lightningcss and postcss-nesting (compile time, gzip and brotli size), then the same CSS in headless Chromium: where native nesting resolves differently from Sass, and the nested `:hover` pattern that makes style recalculation quadratic. Needs `npx playwright install chromium` once. From [CSS Nesting vs Sass in 2026](https://codingdunia.com/blog/css-nesting-2026-native-vs-sass/)
+- [`css-centering-cross-engine/`](./css-centering-cross-engine/) - 12 centering techniques against four box sizes in Chromium, Firefox and WebKit, counting how many pixels of an oversized box no scrolling can reach, with 85 assertions. From [How to Center a Div in CSS: Tested in 3 Browser Engines](https://codingdunia.com/blog/css-centering-guide/). Needs `npx playwright install chromium firefox webkit` once
+- [`css-grid-flexbox-cross-engine/`](./css-grid-flexbox-cross-engine/) - flex and grid compared on a long word and an unsized image, on last-row behaviour across 121 container widths, and on layout cost for 500 to 8000 items, in three engines with 163 assertions. From [CSS Grid vs Flexbox: How to Choose, Tested in 3 Engines](https://codingdunia.com/blog/css-grid-vs-flexbox/). Needs `npx playwright install chromium firefox webkit` once
 
 ## ▶️ Running everything
 
 Each folder is independent. `npm install && npm test` inside one is the whole story;
 the benchmark folders take longer than the rest because they are timing something.
 
-Every folder was run this way before it landed here, on Node 20.19.5 and the compiler
-version its README names.
+Every folder was run this way before it landed here, on Node 20.19.5 (the folders marked
+Node 22+ on Node 22.23.3) and the compiler version its README names.
 
 ## 📊 Reproducing the benchmarks
 
-Five folders here measure something rather than demonstrate an API. Each one prints its
+Sixteen folders here measure something rather than demonstrate an API. Each one prints its
 own Node version, CPU and date, so a result you get is comparable to the one we
 published instead of being taken on trust. Your numbers will differ from ours, and on
 the borderline rows they may well flip. That is worth knowing before you rewrite

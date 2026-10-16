@@ -1,0 +1,10 @@
+{
+  "name": "async-await-benchmark",
+  "private": true,
+  "type": "module",
+  "description": "await in a loop vs Promise.all vs a concurrency limit against a real local HTTP server, the per-await cost, microtask tick counts, and which async error patterns crash Node. Asserted.",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node bench.mjs"
+  }
+}
